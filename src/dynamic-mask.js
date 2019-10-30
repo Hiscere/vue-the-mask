@@ -2,6 +2,9 @@ export default function dynamicMask (maskit, masks, tokens) {
   masks = masks.sort((a, b) => a.length - b.length)
   return function (value, mask, masked = true) {
     var i = 0
+    if (!mask) {
+      return value;
+    }
     while (i < masks.length) {
       var currentMask = masks[i]
       i++
